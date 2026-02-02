@@ -8,11 +8,32 @@
 # iii. Se tachan todos los múltiplos de ese número (excepto él mismo).
 # iv. Se repiten los pasos 2 y 3 hasta que ya no queden números nuevos para revisar.
 # v. Los números que queden sin tachar son los primos.
-for n in range(2, 1001):
-    es_primo = True
-    for d in range(2, int(n**0.5) + 1):
-        if n % d == 0:
-            es_primo = False
-            break
-    if es_primo:
-        print(n)
+def construir_cadena(max):
+    cad = ""
+    for i in range(2, max+1):
+        cad += f"{i},"
+    return cad.rstrip(",")
+
+def quitar_cadena(str, num):
+    cad = ""
+    for n in str.split(","):
+        if n != num:
+            if int(n) % int(num) != 0:
+                cad += f"{n},"
+        else:
+            cad += f"{n},"
+
+    return cad.rstrip(",")
+
+
+
+MAX = 1000
+str = construir_cadena(MAX)
+for snum in str.split(","):
+    new_str= quitar_cadena(str, snum)
+    if len(new_str) == len(str): 
+        str = new_str
+        break # pare si no hay cambios
+    str
+
+print(str)
