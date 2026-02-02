@@ -1,2 +1,1 @@
-# algoritmos-python
-# jesus sanchez - alberth leal
+# algoritmos-python jesus sanchez - alberth leal
